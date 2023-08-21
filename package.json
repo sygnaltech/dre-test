@@ -1,5 +1,5 @@
 {
-  "name": "dev-template",
+  "name": "dre",
   "version": "0.1.0",
   "description": "",
   "main": "dist/index.js",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sygnaltech/dev-template.git"
+    "url": "git+https://github.com/sygnaltech/dre-test.git"
   },
   "author": {
     "name": "Michael Wells",
@@ -20,9 +20,9 @@
   },
   "license": "",
   "bugs": {
-    "url": "https://github.com/sygnaltech/dev-template/issues"
+    "url": "https://github.com/sygnaltech/dre-test/issues"
   },
-  "homepage": "https://github.com/sygnaltech/dev-template#readme",
+  "homepage": "https://github.com/sygnaltech/dre-test#readme",
   "devDependencies": {
     "esbuild": "^0.15.14",
     "prettier": "^2.7.1",
