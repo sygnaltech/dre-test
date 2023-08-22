@@ -1,6 +1,22 @@
-const init = () => {
-    console.log('loaded');
+import { DreTest } from "./pages/dre-test";
 
+const init = () => { 
+
+    console.log("DRE-lib", 'loaded');
+
+    console.log("DRE-lib", window.location.pathname);
+
+    switch(window.location.pathname) {
+        case "/test":
+
+            console.log("DRE-lib", "Init | TEST page");
+
+            (new DreTest()).init(); 
+
+            break;
+    }
+
+/*
 
     // Find all input elements with the custom attribute 'dre-id' 
     // set the value to the dre-id 
@@ -103,7 +119,7 @@ fetch(action, {
 
 // capture action
 // prefent default 
-
+*/ 
 }
 
 document.addEventListener("DOMContentLoaded", init)
