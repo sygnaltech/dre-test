@@ -16387,10 +16387,27 @@
   });
 
   // src/pages/dre-test.ts
+  var import_dom = __toESM(require_lib());
+
+  // src/global.ts
+  var MEMBERSTACK_PK = "pk_sb_18f16b072cd6aa53001e";
+
+  // src/pages/dre-test.ts
+  var memberstack = import_dom.default.init({
+    publicKey: MEMBERSTACK_PK
+  });
   var DreTest = class {
     constructor() {
     }
     init() {
+      (async () => {
+        console.log("get member info()");
+        const member = await memberstack.getCurrentMember();
+        const inputElement = document.querySelector('input[name="user_id"]');
+        if (inputElement) {
+          inputElement.value = member.data.id;
+        }
+      })();
       const inputs = document.querySelectorAll("input[dre-id]");
       inputs.forEach((input) => {
         const dreIdValue = input.getAttribute("dre-id");
@@ -16420,6 +16437,7 @@
           formData.forEach((value, key) => {
             formDataObject[key] = value;
           });
+          console.log(JSON.stringify(formDataObject));
           formDataObject["dre_ID"] = dreId;
           console.log(JSON.stringify(formDataObject));
           fetch(action, {
@@ -16441,13 +16459,8 @@
   };
 
   // src/index.ts
-  var import_dom = __toESM(require_lib());
-  var MEMBERSTACK_APP_ID = "app_clksj4bjy00250umgdkgbgh4t";
-  var memberstack = import_dom.default.init({
-    publicKey: MEMBERSTACK_APP_ID
-  });
   var init = () => {
-    console.log("DRE-lib", "loaded1");
+    console.log("DRE-lib", "loaded");
     console.log("DRE-lib", window.location.pathname);
     switch (window.location.pathname) {
       case "/test":
@@ -16455,12 +16468,6 @@
         new DreTest().init();
         break;
     }
-    (async () => {
-      console.log("get member info()");
-      const member = await memberstack.getCurrentMember();
-      console.log(member.data.id);
-      console.log(member.data.customFields);
-    })();
   };
   document.addEventListener("DOMContentLoaded", init);
 })();
